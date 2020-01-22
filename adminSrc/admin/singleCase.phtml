@@ -1,0 +1,315 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <? include('partials/head.phtml');?>
+</head>
+
+<body class="page-loading">
+<!-- page loading spinner -->
+<div class="pageload">
+    <div class="pageload-inner">
+        <div class="sk-rotating-plane"></div>
+    </div>
+</div>
+<!-- /page loading spinner -->
+<div class="app layout-fixed-header">
+    <!-- sidebar panel -->
+    <div class="sidebar-panel offscreen-left">
+        <div class="brand">
+            <!-- toggle small sidebar menu -->
+            <a href="javascript:" class="toggle-apps hidden-xs" data-toggle="quick-launch">
+                <i class="icon-grid"></i>
+            </a>
+            <!-- /toggle small sidebar menu -->
+            <!-- toggle offscreen menu -->
+            <div class="toggle-offscreen">
+                <a href="javascript:;" class="visible-xs hamburger-icon" data-toggle="offscreen" data-move="ltr">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+            <!-- /toggle offscreen menu -->
+            <!-- logo -->
+            <a class="brand-logo">
+                <span>Yeti</span>
+            </a>
+            <a href="#" class="small-menu-visible brand-logo">Y</a>
+            <!-- /logo -->
+        </div>
+        <!-- main navigation -->
+        <nav role="navigation">
+            <ul class="nav">
+                <!-- dashboard -->
+                <li>
+                    <a href="admin">
+                        <i class="icon-compass"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/blog">
+                        <i class="icon-compass"></i>
+                        <span>Blog Posts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/case-studies">
+                        <i class="icon-compass"></i>
+                        <span>Case Studies</span>
+                    </a>
+                </li>
+                '<li>
+                    <a href="admin/leads">
+                        <i class="icon-compass"></i>
+                        <span>Leads</span>
+                    </a>
+                </li>
+                <!-- /dashboard -->
+            </ul>
+        </nav>
+        <!-- /main navigation -->
+    </div>
+    <!-- /sidebar panel -->
+    <!-- content panel -->
+    <div class="main-panel">
+        <!-- top header -->
+        <div class="header navbar">
+            <div class="brand visible-xs">
+                <!-- toggle offscreen menu -->
+                <div class="toggle-offscreen">
+                    <a href="javascript:;" class="hamburger-icon visible-xs" data-toggle="offscreen" data-move="ltr">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+                <!-- /toggle offscreen menu -->
+                <!-- logo -->
+                <a class="brand-logo">
+                    <span>Yeti Media</span>
+                </a>
+                <!-- /logo -->
+            </div>
+        </div>
+        <!-- /top header -->
+        <!-- main area -->
+        <div class="main-content">
+
+            <form class="form-horizontal"  enctype="multipart/form-data" method="POST" action="">
+
+
+                <h3><? if($_SERVER[REQUEST_URI] === '/admin/blog/create'){ echo 'New Case Study';}else{echo 'Edit Case Study';}?></h3>
+
+                <hr>
+
+                <div class="card">
+
+                    <h4 class="bold" style="margin-left:15px;">Title & URL</h4>
+
+                    <hr>
+
+                    <div class="row">
+
+                        <div class="col-md-10">
+
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Case Study Title</label>
+                                <small>Commonly a company name or customer name</small>
+                                <div class="col-sm-10">
+                                    <input name="company" value="<?=$company;?>" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Page Slug (URL)</label>
+                                <div class="col-sm-10">
+                                    <input name="url" value="<?=$url;?>" type="text" class="form-control">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <hr>
+
+
+                <div class="card">
+
+                    <h4 class="bold" style="margin-left:15px;">Intro Text</h4>
+
+                    <hr>
+
+                    <div class="row">
+
+                        <div class="col-md-10">
+
+                            <textarea id="summernote" name="introText"><?=$introText;?></textarea>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-10">
+
+                            <textarea id="summernote2" name="description"><?=$description;?></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <hr>
+
+
+                <div class="card">
+
+                    <h4 class="bold" style="margin-left:15px;">Meta & SEO</h4>
+
+                    <hr>
+
+                    <div class="row">
+
+                        <div class="col-md-10">
+
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Meta Title</label>
+                                <div class="col-sm-10">
+                                    <input name="seoTitle" value="<?=$seoTitle;?>" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Meta Description</label>
+                                <div class="col-sm-10">
+                                    <input name="seoDescription" value="<?=$seoDescription;?>" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">OG Title</label>
+                                <div class="col-sm-10">
+                                    <input name="ogTitle" value="<?=$ogTitle;?>" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">OG Description</label>
+                                <div class="col-sm-10">
+                                    <input name="ogDescription" value="<?=$ogDescription;?>" type="text" class="form-control">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <hr>
+
+                <div class="card">
+
+                    <h4 class="bold" style="margin-left:15px;">Images</h4>
+
+                    <hr>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <label for="image1">Image 1</label>
+                            <input id="image1" type="file" name="image1" class="form-control">
+
+                            <label for="image1">Image 2</label>
+                            <input id="image1" type="file" name="image2" class="form-control">
+
+                            <label for="logo">Logo</label>
+                            <input id="logo" type="file" name="logo" class="form-control">
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <? if(strlen($image1)){?>
+
+                                <h5>Current Image:</h5>
+
+                                <img src="<?=$image1;?>" style="width:80%;">
+
+                            <? } ?>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <hr>
+
+                <button type="submit" class="btn btn-dark btn-lg"><? if($_SERVER[REQUEST_URI] === '/admin/case-studies/create'){ echo 'Create Blog Post';}else{echo 'Edit Case Study';}?></button>
+
+
+
+            </form>
+
+
+
+        </div>
+        <!-- /main area -->
+    </div>
+    <!-- /content panel -->
+    <!-- bottom footer -->
+    <footer class="content-footer">
+
+
+    </footer>
+    <!-- /bottom footer -->
+</div>
+<!-- build:js({.tmp,app}) scripts/app.min.js -->
+<script src="adminAssets/scripts/helpers/modernizr.js"></script>
+<script src="adminAssets/vendor/jquery/dist/jquery.js"></script>
+<script src="adminAssets/vendor/bootstrap/dist/js/bootstrap.js"></script>
+<script src="adminAssets/vendor/fastclick/lib/fastclick.js"></script>
+<script src="adminAssets/vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="adminAssets/scripts/helpers/smartresize.js"></script>
+<script src="adminAssets/scripts/constants.js"></script>
+<script src="adminAssets/scripts/main.js"></script>
+<script src="adminAssets/scripts/dropzone.js"></script>
+<script src="adminAssets/vendor/summernote/dist/summernote.min.js"></script>
+
+<script>
+
+    /**
+     * Form WYSIWYG demo
+     */
+    (function ($) {
+        'use strict';
+
+        // Summernote
+        $('#summernote').summernote();
+        $('#summernote2').summernote();
+
+
+    })(jQuery);
+
+</script>
+
+<!-- endbuild -->
+</body>
+
+</html>

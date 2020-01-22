@@ -1,0 +1,181 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <? include('partials/head.phtml');?>
+</head>
+
+<body class="page-loading">
+<!-- page loading spinner -->
+<div class="pageload">
+    <div class="pageload-inner">
+        <div class="sk-rotating-plane"></div>
+    </div>
+</div>
+<!-- /page loading spinner -->
+<div class="app layout-fixed-header">
+    <!-- sidebar panel -->
+    <div class="sidebar-panel offscreen-left">
+        <div class="brand">
+            <!-- toggle small sidebar menu -->
+            <a href="javascript:" class="toggle-apps hidden-xs" data-toggle="quick-launch">
+                <i class="icon-grid"></i>
+            </a>
+            <!-- /toggle small sidebar menu -->
+            <!-- toggle offscreen menu -->
+            <div class="toggle-offscreen">
+                <a href="javascript:;" class="visible-xs hamburger-icon" data-toggle="offscreen" data-move="ltr">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+            <!-- /toggle offscreen menu -->
+            <!-- logo -->
+            <a class="brand-logo">
+                <span>Yeti</span>
+            </a>
+            <a href="#" class="small-menu-visible brand-logo">Y</a>
+            <!-- /logo -->
+        </div>
+        <!-- main navigation -->
+        <nav role="navigation">
+            <ul class="nav">
+                <!-- dashboard -->
+                <li>
+                    <a href="admin">
+                        <i class="icon-compass"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/blog">
+                        <i class="icon-compass"></i>
+                        <span>Blog Posts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/case-studies">
+                        <i class="icon-compass"></i>
+                        <span>Case Studies</span>
+                    </a>
+                </li>
+                '<li>
+                    <a href="admin/leads">
+                        <i class="icon-compass"></i>
+                        <span>Leads</span>
+                    </a>
+                </li>
+                <!-- /dashboard -->
+            </ul>
+        </nav>
+        <!-- /main navigation -->
+    </div>
+    <!-- /sidebar panel -->
+    <!-- content panel -->
+    <div class="main-panel">
+        <!-- top header -->
+        <div class="header navbar">
+            <div class="brand visible-xs">
+                <!-- toggle offscreen menu -->
+                <div class="toggle-offscreen">
+                    <a href="javascript:;" class="hamburger-icon visible-xs" data-toggle="offscreen" data-move="ltr">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+                <!-- /toggle offscreen menu -->
+                <!-- logo -->
+                <a class="brand-logo">
+                    <span>Yeti Media</span>
+                </a>
+                <!-- /logo -->
+            </div>
+        </div>
+        <!-- /top header -->
+        <!-- main area -->
+        <div class="main-content">
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <h3>Case Studies</h3>
+                    <p>Your websites case studies are listed below.</p>
+                </div>
+                <div class="col-sm-6 text-right" style="padding-top:20px;">
+
+                    <a href="/admin/case-studies/create" class="btn btn-dark">New Case Study</a>
+
+                </div>
+
+            </div>
+
+            <div class="card bg-white">
+                <div class="card-header">
+                    Blog Posts
+                </div>
+                <div class="card-block">
+                    <table class="table  datatable m-b-0">
+                        <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Slug</th>
+                            <th>Date Created</th>
+                            <th>Date Updated</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <? foreach($css as $cs){?>
+                            <tr>
+                                <td style="width:30%;"><?=$cs->company;?></td>
+                                <td><?=$cs->url;?></td>
+                                <td><?=$cs->dateCreated;?></td>
+                                <td><?=$cs->dateUpdated;?></td>
+                                <td>
+                                    <a class="btn btn-danger">Delete Case Study</a>
+                                    <a href="/admin/case-studies/<?=$cs->id;?>" class="btn btn-dark">Edit Case Study</a>
+                                </td>
+                            </tr>
+                        <? } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- /main area -->
+    </div>
+    <!-- /content panel -->
+    <!-- bottom footer -->
+    <footer class="content-footer">
+
+
+    </footer>
+    <!-- /bottom footer -->
+</div>
+<!-- build:js({.tmp,app}) scripts/app.min.js -->
+<script src="adminAssets/scripts/helpers/modernizr.js"></script>
+<script src="adminAssets/vendor/jquery/dist/jquery.js"></script>
+<script src="adminAssets/vendor/bootstrap/dist/js/bootstrap.js"></script>
+<script src="adminAssets/vendor/fastclick/lib/fastclick.js"></script>
+<script src="adminAssets/vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="adminAssets/scripts/helpers/smartresize.js"></script>
+<script src="adminAssets/scripts/constants.js"></script>
+<script src="adminAssets/scripts/main.js"></script>
+<script src="adminAssets/scripts/swal.js"></script>
+<script src="adminAssets/vendor/datatables/media/js/jquery.dataTables.js"></script>
+<!-- end page scripts -->
+<!-- initialize page scripts -->
+<script src="adminAssets/vendor/datatables/media/js/datatables.bootstrap.js"></script>
+<script type="text/javascript">
+    $('.datatable').dataTable({
+    });
+</script>
+
+<!-- endbuild -->
+</body>
+
+</html>

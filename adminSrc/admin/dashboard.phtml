@@ -1,0 +1,126 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+<? include('partials/head.phtml');?>
+</head>
+
+<body class="page-loading">
+<!-- page loading spinner -->
+<div class="pageload">
+    <div class="pageload-inner">
+        <div class="sk-rotating-plane"></div>
+    </div>
+</div>
+<!-- /page loading spinner -->
+<div class="app layout-fixed-header">
+    <!-- sidebar panel -->
+    <div class="sidebar-panel offscreen-left">
+        <div class="brand">
+            <!-- toggle small sidebar menu -->
+            <a href="javascript:" class="toggle-apps hidden-xs" data-toggle="quick-launch">
+                <i class="icon-grid"></i>
+            </a>
+            <!-- /toggle small sidebar menu -->
+            <!-- toggle offscreen menu -->
+            <div class="toggle-offscreen">
+                <a href="javascript:;" class="visible-xs hamburger-icon" data-toggle="offscreen" data-move="ltr">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+            <!-- /toggle offscreen menu -->
+            <!-- logo -->
+            <a class="brand-logo">
+                <span>Yeti</span>
+            </a>
+            <a href="#" class="small-menu-visible brand-logo">Y</a>
+            <!-- /logo -->
+        </div>
+        <!-- main navigation -->
+        <nav role="navigation">
+            <ul class="nav">
+                <!-- dashboard -->
+                <li>
+                    <a href="admin">
+                        <i class="icon-compass"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/blog">
+                        <i class="icon-compass"></i>
+                        <span>Blog Posts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin/case-studies">
+                        <i class="icon-compass"></i>
+                        <span>Case Studies</span>
+                    </a>
+                </li>
+                '<li>
+                    <a href="admin/leads">
+                        <i class="icon-compass"></i>
+                        <span>Leads</span>
+                    </a>
+                </li>
+                <!-- /dashboard -->
+            </ul>
+        </nav>
+        <!-- /main navigation -->
+    </div>
+    <!-- /sidebar panel -->
+    <!-- content panel -->
+    <div class="main-panel">
+        <!-- top header -->
+        <div class="header navbar">
+            <div class="brand visible-xs">
+                <!-- toggle offscreen menu -->
+                <div class="toggle-offscreen">
+                    <a href="javascript:;" class="hamburger-icon visible-xs" data-toggle="offscreen" data-move="ltr">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </a>
+                </div>
+                <!-- /toggle offscreen menu -->
+                <!-- logo -->
+                <a class="brand-logo">
+                    <span>Yeti Media</span>
+                </a>
+                <!-- /logo -->
+            </div>
+        </div>
+        <!-- /top header -->
+        <!-- main area -->
+        <div class="main-content">
+
+            <h3>Dashboard coming soon</h3>
+            <p>In the meantime select a menu item from the left.</p>
+
+        </div>
+        <!-- /main area -->
+    </div>
+    <!-- /content panel -->
+    <!-- bottom footer -->
+    <footer class="content-footer">
+
+
+    </footer>
+    <!-- /bottom footer -->
+</div>
+<!-- build:js({.tmp,app}) scripts/app.min.js -->
+<script src="adminAssets/scripts/helpers/modernizr.js"></script>
+<script src="adminAssets/vendor/jquery/dist/jquery.js"></script>
+<script src="adminAssets/vendor/bootstrap/dist/js/bootstrap.js"></script>
+<script src="adminAssets/vendor/fastclick/lib/fastclick.js"></script>
+<script src="adminAssets/vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="adminAssets/scripts/helpers/smartresize.js"></script>
+<script src="adminAssets/scripts/constants.js"></script>
+<script src="adminAssets/scripts/main.js"></script>
+<!-- endbuild -->
+</body>
+
+</html>

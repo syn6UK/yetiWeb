@@ -1,0 +1,123 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+<? include('partials/head.phtml');?>
+</head>
+
+<body class="page-loading">
+<!-- page loading spinner -->
+<div class="pageload">
+    <div class="pageload-inner">
+        <div class="sk-rotating-plane"></div>
+    </div>
+</div>
+<!-- /page loading spinner -->
+<div class="app layout-fixed-header">
+    <!-- content panel -->
+    <div>
+
+        <!-- main area -->
+        <div class="main-content">
+
+            <img src="adminAssets/images/yetiweb.svg" class="installerLogo">
+
+            <h3 class="text-center">Installer</h3>
+            <p class="text-center">Please complete the below fields to set up YetiWeb.</p>
+
+           <div class="container m-t-lg">
+
+               <div class="row">
+
+                   <div class="col-sm-8 col-sm-offset-2">
+                       <form class="form-horizontal"  enctype="multipart/form-data" method="POST" action="">
+
+                           <h5 class="m-t-md">Database Information</h5>
+                           <p class="m-b-md">This is required in order to install the website</p>
+
+
+                           <div class="form-group">
+                               <label class="col-sm-2 control-label">Databse URL</label>
+                               <div class="col-sm-10">
+                                   <input name="DB_URL" value="<?=$body['DB_URL'];?>" type="text" class="form-control" required>
+                               </div>
+                           </div>
+
+                           <div class="form-group">
+                               <label class="col-sm-2 control-label">Database Name</label>
+                               <div class="col-sm-10">
+                                   <input name="DB_NAME" value="<?=$body['DB_NAME'];?>" type="text" class="form-control" required>
+                               </div>
+                           </div>
+
+                           <div class="form-group">
+                               <label class="col-sm-2 control-label">Database Username</label>
+                               <div class="col-sm-10">
+                                   <input name="DB_USERNAME" value="<?=$body['DB_USERNAME'];?>" type="text" class="form-control" required>
+                               </div>
+                           </div>
+
+                           <div class="form-group">
+                               <label class="col-sm-2 control-label">Database Password</label>
+                               <div class="col-sm-10">
+                                   <input name="DB_PASSWORD" value="<?=$body['DB_PASSWORD'];?>" type="text" class="form-control" required>
+                               </div>
+                           </div>
+
+                           <hr>
+
+                           <h5 class="m-t-md">Admin User</h5>
+                           <p class="m-b-md">This will be your initial administrator login.</p>
+
+
+                           <div class="form-group">
+                               <label class="col-sm-2 control-label">Username</label>
+                               <div class="col-sm-10">
+                                   <input name="ADMIN_USER" value="<?=$body['ADMIN_USER'];?>" type="text" class="form-control" required>
+                               </div>
+                           </div>
+
+                           <div class="form-group">
+                               <label class="col-sm-2 control-label">Password</label>
+                               <div class="col-sm-10">
+                                   <input name="ADMIN_PW" value="<?=$body['ADMIN_PW'];?>" type="password" class="form-control" required>
+                               </div>
+                           </div>
+
+                           <hr class="m-y-md">
+
+                           <button type="submit" class="btn-lg btn btn-dark">Install Website</button>
+
+
+                       </form>
+                   </div>
+
+               </div>
+
+           </div>
+
+
+        </div>
+        <!-- /main area -->
+    </div>
+    <!-- /content panel -->
+    <!-- bottom footer -->
+    <footer class="content-footer">
+
+
+    </footer>
+    <!-- /bottom footer -->
+</div>
+<!-- build:js({.tmp,app}) scripts/app.min.js -->
+<script src="adminAssets/scripts/helpers/modernizr.js"></script>
+<script src="adminAssets/vendor/jquery/dist/jquery.js"></script>
+<script src="adminAssets/vendor/bootstrap/dist/js/bootstrap.js"></script>
+<script src="adminAssets/vendor/fastclick/lib/fastclick.js"></script>
+<script src="adminAssets/vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+<script src="adminAssets/scripts/helpers/smartresize.js"></script>
+<script src="adminAssets/scripts/constants.js"></script>
+<script src="adminAssets/scripts/main.js"></script>
+<!-- endbuild -->
+</body>
+
+</html>
