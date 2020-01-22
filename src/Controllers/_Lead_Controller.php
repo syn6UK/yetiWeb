@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Web\Lead;
+use App\Modules\ThemeEngine;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Slim\Views\PhpRenderer;
@@ -14,6 +15,7 @@ class _Lead_Controller{
     public $renderer;
     public $adminRender;
     protected $apikey = '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';
+    public $activeTheme;
 
 
     public function __construct($logger, $db, PhpRenderer $renderer, PhpRenderer $adminRender ) {
@@ -21,6 +23,9 @@ class _Lead_Controller{
         $this->logger = $logger;
         $this->renderer = $renderer;
         $this->adminRender = $adminRender;
+        $themeEngine = new ThemeEngine();
+        $this->activeTheme = $themeEngine->themeDirectory;
+
     }
 
     public function getAllLeads(Request $request, Response $response, $args){
@@ -60,7 +65,7 @@ class _Lead_Controller{
     public function contactThanks(Request $request, Response $response, $args){
 
         $args['title'] = 'Thank you';
-        return $this->renderer->render($response, 'contactThanks.phtml', $args);
+        return $this->renderer->render($response, $this->activeTheme . 'contactThanks.phtml', $args);
 
 
     }
@@ -68,7 +73,7 @@ class _Lead_Controller{
     public function leadThanks(Request $request, Response $response, $args){
 
         $args['title'] = 'Thank You';
-        return $this->renderer->render($response, 'leadThanks.phtml', $args);
+        return $this->renderer->render($response, $this->activeTheme . 'leadThanks.phtml', $args);
 
 
     }

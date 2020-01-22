@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Web\BlogPost;
+use App\Modules\ThemeEngine;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Slim\Http\UploadedFile;
@@ -15,6 +16,7 @@ class _Blog_Controller{
 	public $renderer;
 	public $adminRender;
 	public $upload_Directory;
+	public $activeTheme;
 
 	public function __construct($logger, $db, PhpRenderer $renderer,PhpRenderer $adminRender, $upload ) {
 		$this->table = $db;
@@ -22,13 +24,15 @@ class _Blog_Controller{
 		$this->renderer = $renderer;
 		$this->adminRender = $adminRender;
 		$this->upload_Directory = $upload;
+		$themeEngine = new ThemeEngine();
+		$this->activeTheme = $themeEngine->themeDirectory;
 	}
 
 	public function homePageBlog(Request $request, Response $response, $args){
 
         $args['posts'] = BlogPost::orderBy('id', 'desc')->take(7)->get()->toArray();
 
-        return $this->renderer->render($response, 'index.phtml', $args);
+        return $this->renderer->render($response, $this->activeTheme . 'index.phtml', $args);
 
     }
 
@@ -109,7 +113,7 @@ class _Blog_Controller{
 
         $args['posts'] = BlogPost::all();
 
-        return $this->renderer->render($response, 'blogList.phtml', $args);
+        return $this->renderer->render($response, $this->activeTheme . 'blogList.phtml', $args);
 
     }
 
@@ -120,11 +124,11 @@ class _Blog_Controller{
         ])->first();
 
         if($args['posts']){
-            return $this->renderer->render($response, 'singleBlog.phtml', $args);
+            return $this->renderer->render($response, $this->activeTheme . 'singleBlog.phtml', $args);
         }else{
             $args['title'] = 'ERROR 404';
             $response = $response->withStatus(404);
-            return $this->renderer->render($response, '404.phtml', $args);
+            return $this->renderer->render($response, $this->activeTheme . '404.phtml', $args);
         }
 
     }

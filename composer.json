@@ -1,6 +1,6 @@
 {
-    "name": "lanos/api-framework",
-    "description": "A framework for RESTFul Services, built upon Slim, utilizing Eloquent ORM and oAuth 2.0",
+    "name": "lanos/yetiweb",
+    "description": "Out of the box website skeleton with blog",
     "keywords": ["microframework", "rest", "router", "psr7", "lanos", "api"],
     "homepage": "http://github.com/syn6uk/lanosAPI",
     "type" : "project",

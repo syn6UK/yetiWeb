@@ -10,6 +10,9 @@ use Slim\Http\Response;
 use App\Controllers\_Auth_Controller;
 use App\Controllers\_User_Controller;
 
+
+$activeTheme = new \App\Modules\ThemeEngine();
+
 // Routes
 
 $app->get('/', _Blog_Controller::class.':homePageBlog');
@@ -17,7 +20,7 @@ $app->get('/', _Blog_Controller::class.':homePageBlog');
 
 
 
-$app->get('/contact', function (Request $request, Response $response, array $args) {
+$app->get('/contact', function (Request $request, Response $response, array $args) use($activeTheme) {
 	// Render index view - Typically an API welcome page or JSON message.
 	return $this->renderer->render($response, 'contact.phtml', $args);
 });
@@ -30,14 +33,14 @@ $app->post('/contact', _Lead_Controller::class.':contactPost');
 $app->post('/lead', _Lead_Controller::class.':leadPost');
 
 
-$app->get('/about', function (Request $request, Response $response, array $args) {
+$app->get('/about', function (Request $request, Response $response, array $args) use($activeTheme) {
 
     $args['title'] = 'About Us';
 	// Render index view - Typically an API welcome page or JSON message.
-	return $this->renderer->render($response, 'about.phtml', $args);
+	return $this->renderer->render($response, $activeTheme->themeDirectory . 'about.phtml', $args);
 });
 
-$app->get('/services', function (Request $request, Response $response, array $args) {
+$app->get('/services', function (Request $request, Response $response, array $args) use($activeTheme){
     $args['title'] = 'Our Services';
 
     // Render index view - Typically an API welcome page or JSON message.
@@ -53,12 +56,12 @@ $app->group('/case-studies', function () {
 
 $app->group('/blog', function () {
 
-    $this->get('', _CS_Controller::class.':getAllCaseStudysPublic');
-    $this->get('/{slug}', _CS_Controller::class.':getSingleCaseStudyPublic');
+    $this->get('', _Blog_Controller::class.':getAllBlogPostsPublic');
+    $this->get('/{slug}', _Blog_Controller::class.':getSingleBlogPostPublic');
 
 });
 
-$app->get('/team', function (Request $request, Response $response, array $args) {
+$app->get('/team', function (Request $request, Response $response, array $args) use($activeTheme){
 	// Render index view - Typically an API welcome page or JSON message.
 	return $this->renderer->render($response, 'team.phtml', $args);
 });
