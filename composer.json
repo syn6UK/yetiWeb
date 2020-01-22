@@ -5,6 +5,7 @@
     "homepage": "http://github.com/syn6uk/lanosAPI",
     "type" : "project",
     "license": "MIT",
+    "version": "1.0",
     "authors": [
         {
             "name": "Robert Lane",
