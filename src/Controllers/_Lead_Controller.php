@@ -14,7 +14,7 @@ class _Lead_Controller{
     public $logger;
     public $renderer;
     public $adminRender;
-    protected $apikey = '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';
+    protected $apikey;
     public $activeTheme;
 
 
